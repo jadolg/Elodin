@@ -1,0 +1,61 @@
+{% load staticfiles %}
+{% load server_runing_tag %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elodin DNS</title>
+    <link href="{% static "styles/font-awesome.css" %}" type="text/css" rel="stylesheet">
+    <link href="{% static "styles/bootstrap.css" %}" type="text/css" rel="stylesheet">
+    <link href="{% static "styles/style.css" %}" type="text/css" rel="stylesheet">
+    <link href="{% static "styles/tooltip.css" %}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="{% static "js/jquery-1.11.2.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/bootbox.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/filtertable.js" %}"></script>
+</head>
+<body>
+<div class="modal-header col-md-12">
+    {% server_running as running %}
+    <div class="col-md-8" ><h2><a href="/"><i class="fa fa-sliders"></i> Elodin DNS Colaborativo</a></h2></div>
+    <div class="col-md-1" style="margin-top: 15px"><a class="btn btn-default" href="/logs">Logs</a></div>
+    <div class="col-md-1" style="margin-top: 20px">DNS {% if running %}<i class="fa fa-circle" style="color: green"></i>{% else %}<i class="fa fa-circle" style="color: red"></i>{% endif %}</div>
+    <div class="col-md-1" style="margin-top: 20px">  {% if user.username %}<i class="fa fa-user"></i> {{ user.username }}{% endif %}</div>
+    <div class="col-md-1" style="margin-top: 20px">  {% if user.username %}<a href="/logout"><i class="fa fa-power-off"></i></a>{% endif %}</div>
+</div>
+{% include "_messages.html" %}
+{% block body %}
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        var showDialog = function (url, msg) {
+            bootbox.dialog({
+                message: msg,
+                title: "Alerta",
+                buttons: {
+                    success: {
+                        label: "Aceptar",
+                        className: "btn-success",
+                        callback: function () {
+                            window.open(url, "_parent");
+                        }
+                    },
+                    danger: {
+                        label: "Cancelar",
+                        className: "btn-danger",
+                        callback: function () {
+                            {#                                window.open("","_parent")#}
+                        }
+                    }
+                }
+            });
+        };
+    </script>
+{% endblock %}
+
+
+</body>
+</html>

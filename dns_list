@@ -1,0 +1,32 @@
+
+DNS por nodos
+zona "gntk.snet"
+primario : 192.168.32.4
+secundario : 192.168.32.1
+
+zone "netlab.snet"
+192.168.32.4
+
+zona "uno.gntk.snet"
+10.31.18.2
+
+zona "habana-este.snet"
+192.168.192.1
+
+zona "cs.snet."
+10.24.0.1
+
+zona"rog.snet."
+10.30.1.1
+
+zona "wifinet.snet."
+10.16.1.1
+
+zona "imperivm.snet."
+192.168.128.1
+
+zona "play@Snet"
+10.26.1.1
+
+zona "Cerro"
+10.22.1.1

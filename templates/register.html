@@ -1,0 +1,18 @@
+{% extends 'Base.html' %}
+
+{% block body %}
+    <div class="col-md-4"></div>
+    <div class="col-md-3">
+    <h3><i class="fa fa-key"></i> Registrarse</h3>
+        <form method="post" name="formulario">
+            {% csrf_token %}
+            <div class="form-group"><input class="form-control" type="text" name="user" placeholder="usuario"></div>
+            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="contraseña"></div>
+            <div class="form-group"><input class="form-control" type="password" name="repassword" placeholder="repita la contraseña"></div>
+            <div class="form-group"><input type="submit" class="btn btn-primary" value="Regístrame"></div>
+        </form>
+    <h5>Antes de registrarse por favor, lea el <a href="/conducta">código de conducta</a>. No se tolerará ninguna indisciplina.</h5>
+    </div>
+
+    <div class="col-md-5"></div>
+{% endblock %}
